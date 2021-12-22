@@ -1,13 +1,242 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'FormaDJRMicro';
+    font-size: 14px;
+    color: #313133;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+    font-family: 'FormaDJRDisplay';
+    color: #B36555;
+}
+
+a {
+    color: inherit;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+    border: 0;
+    padding: 0;
+    margin: 20px 0;
+}
+
+select {
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 0;
+    margin: 10px 0;
+}
+
+.window {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.23);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-page {
+    background-color: #F4F3F1;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s;
+}
+
+.menu--active .menu-page {
+    width: 400px;
+}
+
+.menu-page--inner {
+    width: 360px;   
+    padding: 20px;
+}
+
+ul.nav {
+    position: relative;
+    height: 100%;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #B36555;
+    color: #FFFFFF;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+li.nav-item{
+    font-size: 13px;
+    padding: 16px 10px;
+    cursor: pointer;
+}
+
+li.nav-item--active {
+    background-color: #F4F3F1;
+    color: #B36555;
+}
+
+li.nav-item .icon {
+    height: 24px;
+    margin-bottom: 5px;
+    width: auto;
+}
+
+li.nav-item span.label {
+    display: block;
+}
+
+.nav-hide-menu-btn {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    transform: rotate( 180deg );
+    transition: transform 0.3s;
+}
+
+.menu--active .nav-hide-menu-btn {
+    transform: rotate( 0deg );
+}
+
+.preview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.editor-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.editor-container canvas.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mockup {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.layers {
+    width: 100%;
+    height: 100%;
+}
+
+.sample-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.field {
+    display: contents;
+}
+
+.field label {
+    grid-column: 1;
+}
+
+.field select {
+    grid-column: 2;
+}
+
+@media screen and (max-width: 600px) {
+    .window {
+        flex-direction: column-reverse;
+    }
+
+    .menu {
+        flex-direction: column-reverse;
+    }
+
+    ul.nav {
+        position: static;
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
+
+    li.nav-item {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    li.nav-item--active {
+        background-color: #B36555;
+        color: #F4F3F1;
+    }
+
+    .menu--active li.nav-item--active {
+        background-color: #F4F3F1;
+        color: #B36555;
+    }
+
+    .menu-page {
+        height: 0;
+        transition: none;
+    }
+
+    .menu--active {
+        height: calc(100vh - 40px);
+    }
+
+    .menu--active .menu-page {
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu--active + .preview {
+        height: 0;
+        padding: 0;
+    }
+
+    .menu-page--inner {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    .menu--active .menu-page--inner {
+        padding: 20px;
+    }
+
+    .nav-hide-menu-btn {
+        display: none;
+        top: 20px;
+        bottom: auto;
+        color: #B36555;
+    }
+
+    .menu--active .nav-hide-menu-btn {
+        display: block;
+        transform: rotate(-90deg)
+    }
+
 }
