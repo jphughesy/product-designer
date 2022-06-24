@@ -118,7 +118,6 @@ li.nav-item span.label {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 40px;
     box-sizing: border-box;
 }
 
@@ -129,12 +128,12 @@ li.nav-item span.label {
     overflow: hidden;
 }
 
-.editor-container canvas.background {
+.editor-container canvas {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 40px;
+    left: 40px;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
 }
 
 .mockup {
@@ -165,6 +164,43 @@ li.nav-item span.label {
 
 .field select {
     grid-column: 2;
+}
+
+.toolbar {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+    list-style:none;
+}
+
+.toolbar li {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar li span {
+    padding-right: 12px;
+}
+
+.toolbar li::after{
+    content: '|';
+    padding: 0 12px;
+}
+
+.toolbar li:last-child::after{
+    content: '';
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
 }
 
 @media screen and (max-width: 600px) {

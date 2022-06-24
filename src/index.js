@@ -30,7 +30,7 @@ import EditorMenu from './menus/EditorMenu'
 
 // Canvas for preview
 import PreviewCanvas from './Canvas'
-import Editor from './Editor'
+import Editor from './EditorNew'
 
 let productImg = new Image()
 productImg.src = ProductImage
